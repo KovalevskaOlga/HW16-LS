@@ -1,14 +1,15 @@
 // Напиши функцію-конструктор Account, яка створює об'єкт з властивостями login і email. В prototype функції-конструктора добав метод getInfo(),
 //  який виводить в консоль значення полів login і email об'єкта який його викликав.
-class Account {
-  constructor(infoAccount) {
-    this.login = infoAccount.login;
-    this.email = infoAccount.email;
-  }
-  getInfo() {
+
+const Account = function ({ login, email }) {
+  this.login = login;
+  this.email = email;
+
+  this.getInfo = function () {
     return `Login: ${this.login}, Email: ${this.email}`;
   }
 }
+
 const mango = new Account({
   login: "Mangozedog",
   email: "mango@dog.woof",
@@ -24,4 +25,4 @@ const poly = new Account({
 console.log(poly.getInfo());
 
 //Login: Mangozedog, Email: mango@dog.woof
-//Login: Poly, Email: poly@mail.com
+// Login: Poly, Email: poly@mail.com
